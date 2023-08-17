@@ -21,7 +21,7 @@ st.write(
   'Hi, Im emilia and Im 16 years old going on my senior year. I live in San Diego, CA. I have got experience in HTML, JavaScript, and python.'
 )
 st.write(
-  'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. Although I am new to coding, I look forward to broadening my experience with coding and technology.'
+  'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. I am new to coding and I look forward to broadening my experience with coding and technology.'
 )
 #Title:
 st.title("GPA and IQ EDA")
@@ -122,14 +122,15 @@ fig5 = plt.figure(figsize=(10, 4))
 sns.scatterplot(x="gpa", y="iq", hue="gender", data=df)
 st.pyplot(fig5)
 
+#st.write("Plot 2c")
+#fig6 = plt.figure(figsize=(10, 4))
+#df.plot.scatter(x='iq', y='gpa')
+#st.pyplot(fig6)
+
 st.write("Plot 2c")
-fig6 = plt.figure(figsize=(10, 4))
-df.plot.scatter(x='iq', y='gpa')
-st.pyplot(fig6)
-
 sns.set_theme()
-
-sns.scatterplot(data=df, x="iq", y="gender", hue="gpa")
+fig6 = plt.figure(figsize(10, 4))
+sns.scatterplot(x="iq", y="gender", hue="gpa", data=df)
 
 sns.barplot(data=df, x='gender', y='iq', estimator='std')
 plt.show()
@@ -171,8 +172,8 @@ st.write(
   "To show how GPA, IQ, and gender correspond to each other I made a correlation heatmap that compares all the possible relations through color. "
 )
 df_heatmap = plt.figure()  # imp! create a fig.
-sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
-df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
+sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG', title = "Correlation Heatmap")
+#df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
 st.pyplot(df_heatmap)
 
 st.write(
