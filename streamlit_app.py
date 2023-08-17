@@ -107,6 +107,7 @@ st.write(
   "In conclusion, IQ somewhat affects GPA and in general, when you have a higher IQ, you will also have a higher GPA. This may not be the case for everyone though."
 )
 st.divider()
+
 st.header("Hypothsis 2: Is there a correlation between IQ and Gender?")
 
 st.write("Plot 2a")
@@ -135,7 +136,12 @@ st.write("Plot 2d")
 fig7 = plt.figure(figsize=(10, 4))
 sns.barplot(x='gender', y='iq', estimator='std', data=df)
 st.pyplot(fig7)
-# Analysis: Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.
+
+st.subheader("Analysis")
+
+st.write("Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.")
+
+st.write("")
 
 #The difference is so slight it was difficult to notice within scatterplots and line graphs, but a barplot gave a much clearer picture. Gender 1 was shown to have on average a higher iq than gender 2, but alas, no one knows which gender is which.
 
@@ -150,8 +156,7 @@ st.write("Plot 3a")
 fig1 = px.scatter(df,
                   x="gpa",
                   y="gender",
-                  color="gpa",
-                  title="Does gender affect gpa?")
+                  color="gpa",)
 st.plotly_chart(fig1, use_container_width=True)
 st.write(
   'For both gender 1 and gender 2, the gpa values seem to be in a straight line, which means that each gender had a variety of GPA values. This shows that there is no correlation.'
@@ -175,11 +180,13 @@ st.write(
 )
 st.write("Plot 4a")
 df_heatmap = plt.figure()  # imp! create a fig.
-sns.heatmap(df.corr(),
-            vmin=-1,
-            vmax=1,
-            annot=True,
-            cmap='BrBG',)
+sns.heatmap(
+  df.corr(),
+  vmin=-1,
+  vmax=1,
+  annot=True,
+  cmap='BrBG',
+)
 #df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
 st.pyplot(df_heatmap)
 
@@ -197,6 +204,8 @@ st.plotly_chart(df_scatter, use_container_width=True)
 st.write(
   ' Here it clearly shows GPA and IQ as a strong positive correlation. Looking very closely, gender and IQ have a weak positive correlation and gender and GPA have a weak negative correlation. While gender can be observed as having no correlation to either IQ or GPA, it can be seen slightly on both the correlation heatmap and scatter matrix that gender has a weak correlation to GPA and IQ.'
 )
+
+st.title("C")
 
 #Hypothesis 4: Correlation heatmap (for all columns)
 #df_heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
