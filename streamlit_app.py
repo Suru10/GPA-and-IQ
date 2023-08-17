@@ -34,7 +34,7 @@ st.subheader('Inspection')
 st.markdown
 st.write('Lets take a quick look at the data')
 df.head()
-st.write('There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled observe')
+st.write('There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled obs and concept due to their irre')
 
 
 
@@ -54,7 +54,7 @@ st.title("Cleaning the Data")
 st.write(
   "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null values and there were none."
 )
-st.write("")
+st.write("Post-processing head")
 st.write(df.head())
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
@@ -120,8 +120,9 @@ fig5 = plt.figure(figsize=(10, 4))
 sns.scatterplot(x="gpa", y="iq", hue="gender", data=df)
 st.pyplot(fig5)
 
-st.
+st.write("Plot 2c")
 df.plot.scatter(x='iq', y='gpa')
+
 
 sns.set_theme()
 
