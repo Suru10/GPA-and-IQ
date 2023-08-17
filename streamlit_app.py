@@ -31,7 +31,7 @@ st.write(
 df = pd.read_csv(
   "https://raw.githubusercontent.com/Suru10/GPA-and-IQ/main/gpa_iq.csv")
 st.subheader('Inspection')
-st.divider()
+# st.divider()
 st.write('Lets take a quick look at the data')
 st.write(df.head())
 st.write(
@@ -41,18 +41,16 @@ st.write(
 # Inspection
 # head
 #df.head()
-#df.tail()
 #df.describe()
 #df.shape
-#df.columns
-#df.info
+
 
 # Cleaning
 # There is no missing info
 st.divider()
 st.title("Cleaning the Data")
 st.write(
-  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checked if the dataset had null values and there were none."
+  "To clean the dataset we removed columns that were not relevant to our analysis such as obs and concept as well as checked if the data had null values and there were none."
 )
 st.write("Post-processing head")
 columns_dropped = ["obs", "concept"]
@@ -148,7 +146,7 @@ st.write(
 )
 
 st.write(
-  "In conclusion, gender seems to have a correlation to an individual's iq, albeit extrodinarily slight and dependent on a rather dodgy dataset."
+  "In conclusion, gender seems to have a correlation to an individual's iq, albeit extraodinarily slight and dependent on a rather dodgy dataset."
 )
 
 st.divider()
@@ -216,7 +214,10 @@ st.title("Conclusion")
 st.write("")
 
 #
-"""T"""
+"""There were multiple things we chose to analyze for this data set. One conclusion that we determined was that a higher IQ usually leads to a higher GPA. We also considered gender and inspected if it had any impact on GPA and IQ. The conclusion we came to was that gender 1 typically has a higher GPA and IQ, but there is very little correlation.""" 
+"""
+To summarize our 4 analyses,
+"""
 #Hypothesis 4: Correlation heatmap (for all columns)
 #df_heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
 #df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
