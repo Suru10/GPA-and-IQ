@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 #Introductions:
 st.subheader('Introduction:Tranquil Tiramisus')
 
-st.write('Hi, my name is Seth Fung and I reside in BC Canada')
+st.write('Hi, my name is Seth Fung and I reside in BC Canada.')
 st.write(
   'Hi! I am Kavya and I am a sophomore. I live in Washington. I have coding experience in mostly HTML, Java, and Python. I have created a few projects and I am so excited to continue expanding my knowledge on coding.'
 )
@@ -31,7 +31,7 @@ st.write(
 df = pd.read_csv(
   "https://raw.githubusercontent.com/Suru10/GPA-and-IQ/main/gpa_iq.csv")
 st.subheader('Inspection')
-st.markdown
+st.divider()
 st.write('Lets take a quick look at the data')
 st.write(df.head())
 st.write(
@@ -139,24 +139,31 @@ st.pyplot(fig7)
 
 st.subheader("Analysis")
 
-st.write("Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.")
+st.write(
+  "Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure."
+)
 
-st.write("")
+st.write(
+  "The difference is so slight it was difficult to notice within scatterplots and line graphs, but a barplot gave a much clearer picture. Gender 1 was shown to have on average a higher iq than gender 2, but alas, no one knows which gender is which."
+)
 
-#The difference is so slight it was difficult to notice within scatterplots and line graphs, but a barplot gave a much clearer picture. Gender 1 was shown to have on average a higher iq than gender 2, but alas, no one knows which gender is which.
-
-# In conclusion, gender seems to have a correlation to an individual's iq, albeit extrodinarily slight and dependent on a rather dodgy dataset.
+st.write(
+  "In conclusion, gender seems to have a correlation to an individual's iq, albeit extrodinarily slight and dependent on a rather dodgy dataset."
+)
 
 st.divider()
+
 st.header("#Hypothesis 3: Does gender affect gpa?")
 st.write(
   'Before I examined the data, my hypothesis for the question "Does gender affect GPA?" was no. I did not believe there was any correlation. To determine if this was true I made a scatter plot to see if there was any correlation.'
 )
 st.write("Plot 3a")
-fig1 = px.scatter(df,
-                  x="gpa",
-                  y="gender",
-                  color="gpa",)
+fig1 = px.scatter(
+  df,
+  x="gpa",
+  y="gender",
+  color="gpa",
+)
 st.plotly_chart(fig1, use_container_width=True)
 st.write(
   'For both gender 1 and gender 2, the gpa values seem to be in a straight line, which means that each gender had a variety of GPA values. This shows that there is no correlation.'
@@ -205,8 +212,11 @@ st.write(
   ' Here it clearly shows GPA and IQ as a strong positive correlation. Looking very closely, gender and IQ have a weak positive correlation and gender and GPA have a weak negative correlation. While gender can be observed as having no correlation to either IQ or GPA, it can be seen slightly on both the correlation heatmap and scatter matrix that gender has a weak correlation to GPA and IQ.'
 )
 
-st.title("C")
+st.title("Conclusion")
+st.write("")
 
+#
+"""T"""
 #Hypothesis 4: Correlation heatmap (for all columns)
 #df_heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
 #df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
