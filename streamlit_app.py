@@ -129,10 +129,13 @@ st.pyplot(fig5)
 
 st.write("Plot 2c")
 sns.set_theme()
-fig6 = plt.figure(figsize(10, 4))
+fig6 = plt.figure(figsize=(10, 4))
 sns.scatterplot(x="iq", y="gender", hue="gpa", data=df)
+st.pyplot(fig6)
 
-sns.barplot(data=df, x='gender', y='iq', estimator='std')
+st.write("Plot 2d")
+
+sns.barplot(x='gender', y='iq', estimator='std', data=df)
 plt.show()
 # Analysis: Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.
 
@@ -145,6 +148,7 @@ st.header("#Hypothesis 3: Does gender affect gpa?")
 st.write(
   'Before I examined the data, my hypothesis for the question "Does gender affect GPA?" was no. I did not believe there was any correlation. To determine if this was true I made a scatter plot to see if there was any correlation.'
 )
+
 fig1 = px.scatter(df,
                   x="gpa",
                   y="gender",
@@ -172,7 +176,12 @@ st.write(
   "To show how GPA, IQ, and gender correspond to each other I made a correlation heatmap that compares all the possible relations through color. "
 )
 df_heatmap = plt.figure()  # imp! create a fig.
-sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG', title = "Correlation Heatmap")
+sns.heatmap(df.corr(),
+            vmin=-1,
+            vmax=1,
+            annot=True,
+            cmap='BrBG',
+            title="Correlation Heatmap")
 #df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
 st.pyplot(df_heatmap)
 
