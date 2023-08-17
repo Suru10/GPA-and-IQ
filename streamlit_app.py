@@ -52,10 +52,8 @@ st.write(
 st.divider()
 st.title("Cleaning the Data")
 st.write(
-  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null values and there were none."
+  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checked if the dataset had null values and there were none."
 )
-st.write("Before Cleaning")
-st.write(df.head())
 st.write("Post-processing head")
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
@@ -134,9 +132,9 @@ sns.scatterplot(x="iq", y="gender", hue="gpa", data=df)
 st.pyplot(fig6)
 
 st.write("Plot 2d")
-
+fig7 = plt.figure(figsize=(10, 4))
 sns.barplot(x='gender', y='iq', estimator='std', data=df)
-plt.show()
+st.pyplot(fig7)
 # Analysis: Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.
 
 #The difference is so slight it was difficult to notice within scatterplots and line graphs, but a barplot gave a much clearer picture. Gender 1 was shown to have on average a higher iq than gender 2, but alas, no one knows which gender is which.
@@ -148,7 +146,7 @@ st.header("#Hypothesis 3: Does gender affect gpa?")
 st.write(
   'Before I examined the data, my hypothesis for the question "Does gender affect GPA?" was no. I did not believe there was any correlation. To determine if this was true I made a scatter plot to see if there was any correlation.'
 )
-
+st.write("Plot 3a")
 fig1 = px.scatter(df,
                   x="gpa",
                   y="gender",
@@ -161,7 +159,7 @@ st.write(
 st.write(
   'However, gender 2 did have a few people who had lower GPAs than gender 1. This might just be a coincidence or it might show that gender 2 typically has a smaller minimum GPA than gender 1. Also, it did seem like gender 2 had more GPA values below four than gender 1. To examine this further, I took the average gpa for both genders and made a bar plot. '
 )
-
+st.write("Plot 3b")
 new_df = df.groupby('gender')['gpa'].mean()
 figbar = px.bar(new_df, y="gpa")
 st.plotly_chart(figbar, use_container_width=True)
@@ -175,13 +173,13 @@ st.header("#Hypothesis 4: Correlation heatmap for both columns")
 st.write(
   "To show how GPA, IQ, and gender correspond to each other I made a correlation heatmap that compares all the possible relations through color. "
 )
+st.write("Plot 4a")
 df_heatmap = plt.figure()  # imp! create a fig.
 sns.heatmap(df.corr(),
             vmin=-1,
             vmax=1,
             annot=True,
-            cmap='BrBG',
-            title="Correlation Heatmap")
+            cmap='BrBG',)
 #df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
 st.pyplot(df_heatmap)
 
@@ -191,6 +189,8 @@ st.write(
 st.write(
   'To reinforce this I created a scatter matrix showcasing and comparing all the relationships.'
 )
+
+st.write("Plot 4b")
 df_list = df[['gpa', 'iq', 'gender']]
 df_scatter = px.scatter(df_list)
 st.plotly_chart(df_scatter, use_container_width=True)
