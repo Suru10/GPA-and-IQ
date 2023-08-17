@@ -13,7 +13,9 @@ warnings.filterwarnings("ignore")
 #Introductions:
 st.subheader('Tranquil Tiramisus')
 
-st.write('Hi, my name is Seth Fung and I reside in BC Canada. I am completely new to coding and ')
+st.write(
+  'Hi, my name is Seth Fung and I reside in BC Canada. I just started to learn coding this year and look forward to continuing to code.'
+)
 st.write(
   'Hi! I am Kavya and I am a sophomore. I live in Washington. I have coding experience in mostly HTML, Java, and Python. I have created a few projects and I am so excited to continue expanding my knowledge on coding.'
 )
@@ -207,7 +209,7 @@ st.write(
 
 st.write("Plot 4b")
 df_list = df[['gpa', 'iq', 'gender']]
-df_scatter = px.scatter(df_list)
+df_scatter = px.scatter_matrix(df_list)
 st.plotly_chart(df_scatter, use_container_width=True)
 st.write(
   ' Here it clearly shows GPA and IQ as a strong positive correlation. Looking very closely, gender and IQ have a weak positive correlation and gender and GPA have a weak negative correlation. While gender can be observed as having no correlation to either IQ or GPA, it can be seen slightly on both the correlation heatmap and scatter matrix that gender has a weak correlation to GPA and IQ.'
@@ -220,4 +222,3 @@ st.write(
 st.write(
   "In conclusion, there is a slight positive correlation between IQ and GPA, and there is a very slight correlation between gender and IQ and gender and GPA."
 )
-
