@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 # Team 1: Seth F., Kavya -> bottom
 # Team 2:emilia, Jemiah -> top
 #Introductions:
-st.subheader('Introduction:Tranquil Tiramisus')
+st.subheader('Tranquil Tiramisus')
 
 st.write('Hi, my name is Seth Fung and I reside in BC Canada.')
 st.write(
@@ -34,6 +34,8 @@ st.subheader('Inspection')
 # st.divider()
 st.write('Lets take a quick look at the data')
 st.write(df.head())
+st.write(df.describe())
+st.write(df.shape)
 st.write(
   'There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled obs and concept due to their irrelevance'
 )
@@ -216,7 +218,9 @@ st.write("")
 #
 """There were multiple things we chose to analyze for this data set. One conclusion that we determined was that a higher IQ usually leads to a higher GPA. We also considered gender and inspected if it had any impact on GPA and IQ. The conclusion we came to was that gender 1 typically has a higher GPA and IQ, but there is very little correlation.""" 
 """
-To summarize our 4 analyses on the correlations between GPA, IQ, and Gender, we reached the conclusion that generally speaking, those with a higher IQ would have a higher GPA. We also came to the conclusion that 1 gender does typically have a slightly higher IQ level as well as GPA
+To summarize our 4 analyses on the correlations between GPA, IQ, and Gender, we reached the conclusion that generally speaking, those with a higher IQ would tend to have a higher GPA. We also came to the conclusion that gender has little to no effect on IQ and GPA.
+
+In conclusion, there is a slight positive correlation between IQ and GPA, and there is verycorrelation between gender and IQ and gender and GPA.
 """
 #Hypothesis 4: Correlation heatmap (for all columns)
 #df_heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
