@@ -32,7 +32,8 @@ st.write(
 st.subheader('Inspection')
 st.markdown
 st.write('Lets take a quick look at the data')
-
+df.head()
+st.write('There are only three relevent data')
 
 # Data frame
 df = pd.read_csv(
@@ -51,8 +52,9 @@ df = pd.read_csv(
 st.divider()
 st.title("Cleaning the Data")
 st.write(
-  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null valuesno missing values."
+  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null values and there were none."
 )
+st.write(df.head)
 
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
@@ -112,7 +114,7 @@ st.pyplot(fig4)
 
 st.write("Plot 2b")
 sns.set_theme()
-
+fig5 = plt.figure(figsize = (10, 4))
 sns.scatterplot( x="gpa",y="iq",hue="gender", data=df)
 df.plot.scatter(x='iq', y='gpa')
 
