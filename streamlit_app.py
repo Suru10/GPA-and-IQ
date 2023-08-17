@@ -33,10 +33,10 @@ df = pd.read_csv(
 st.subheader('Inspection')
 st.markdown
 st.write('Lets take a quick look at the data')
-df.head()
-st.write('There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled obs and concept due to their irre')
-
-
+st.write(df.head())
+st.write(
+  'There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled obs and concept due to their irrelevance'
+)
 
 # Inspection
 # head
@@ -54,11 +54,13 @@ st.title("Cleaning the Data")
 st.write(
   "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null values and there were none."
 )
-st.write("Post-processing head")
+st.write("Before Cleaning")
 st.write(df.head())
+st.write("Post-processing head")
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
 st.write(df.head())
+st.write("Post-processing null vaues")
 st.write(df.isna().sum())
 
 # Visualizations:
@@ -121,8 +123,9 @@ sns.scatterplot(x="gpa", y="iq", hue="gender", data=df)
 st.pyplot(fig5)
 
 st.write("Plot 2c")
+fig6 = plt.figure(figsize=(10, 4))
 df.plot.scatter(x='iq', y='gpa')
-
+st.pyplot(fig6)
 
 sns.set_theme()
 
