@@ -22,22 +22,22 @@ st.write(
 )
 st.write(
   'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. Although I am new to coding, I look forward to broadening my experience with coding and technology.'
-)  
+)
 #Title:
 st.title("GPA and IQ EDA")
 st.write(
   "This dataset looks at 78 students and 5 variables: obs, gpa, iq, gender, and concept. We will look at how each of the variables affect each other."
 )
-
+df = pd.read_csv(
+  "https://raw.githubusercontent.com/Suru10/GPA-and-IQ/main/gpa_iq.csv")
 st.subheader('Inspection')
 st.markdown
 st.write('Lets take a quick look at the data')
 df.head()
-st.write('There are only three relevent data')
+st.write('There are only three relevent points: gpa, gender, and iq - all of which are represented as numerical values. We dropped the columns labeled observe')
 
-# Data frame
-df = pd.read_csv(
-  "https://raw.githubusercontent.com/Suru10/GPA-and-IQ/main/gpa_iq.csv")
+
+
 # Inspection
 # head
 #df.head()
@@ -54,10 +54,12 @@ st.title("Cleaning the Data")
 st.write(
   "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null values and there were none."
 )
-st.write(df.head)
-
+st.write("")
+st.write(df.head())
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
+st.write(df.head())
+st.write(df.isna().sum())
 
 # Visualizations:
 # Team 1: Kavya, Seth
@@ -114,8 +116,11 @@ st.pyplot(fig4)
 
 st.write("Plot 2b")
 sns.set_theme()
-fig5 = plt.figure(figsize = (10, 4))
-sns.scatterplot( x="gpa",y="iq",hue="gender", data=df)
+fig5 = plt.figure(figsize=(10, 4))
+sns.scatterplot(x="gpa", y="iq", hue="gender", data=df)
+st.pyplot(fig5)
+
+st.
 df.plot.scatter(x='iq', y='gpa')
 
 sns.set_theme()
@@ -135,7 +140,11 @@ st.header("#Hypothesis 3: Does gender affect gpa?")
 st.write(
   'Before I examined the data, my hypothesis for the question "Does gender affect GPA?" was no. I did not believe there was any correlation. To determine if this was true I made a scatter plot to see if there was any correlation.'
 )
-fig1 = px.scatter(df, x="gpa",y="gender",color="gpa",title="Does gender affect gpa?")
+fig1 = px.scatter(df,
+                  x="gpa",
+                  y="gender",
+                  color="gpa",
+                  title="Does gender affect gpa?")
 st.plotly_chart(fig1, use_container_width=True)
 st.write(
   'For both gender 1 and gender 2, the gpa values seem to be in a straight line, which means that each gender had a variety of GPA values. This shows that there is no correlation.'
@@ -149,15 +158,15 @@ figbar = px.bar(new_df, y="gpa")
 st.plotly_chart(figbar, use_container_width=True)
 
 st.write(
-  "The bar plot showed that gender 1 had a slightly higher average GPASo, According to the data, there is mostly no correlation between gender and GPA. However, gender 1 tends to have somewhat higher GPAS."
+  "The bar plot showed that gender 1 had a slightly higher average GPA. So, According to the data, there is mostly no correlation between gender and GPA. However, gender 1 tends to have somewhat higher GPAS."
 )
 
 st.divider()
-st.header("#Hypothesis 3: Correlation heatmap for both columns")
+st.header("#Hypothesis 4: Correlation heatmap for both columns")
 st.write(
   "To show how GPA, IQ, and gender correspond to each other I made a correlation heatmap that compares all the possible relations through color. "
 )
-df_heatmap = plt.figure(figsize=(10, 4))  # imp! create a fig.
+df_heatmap = plt.figure()  # imp! create a fig.
 sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
 df_heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12}, pad=12)
 st.pyplot(df_heatmap)
