@@ -31,6 +31,8 @@ st.write(
 
 st.subheader('Inspection')
 st.markdown
+st.write('Lets take a quick look at the data')
+
 
 # Data frame
 df = pd.read_csv(
@@ -49,7 +51,7 @@ df = pd.read_csv(
 st.divider()
 st.title("Cleaning the Data")
 st.write(
-  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept. The dataset had no missing values and "
+  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept as well as checking if the dataset had null valuesno missing values."
 )
 
 columns_dropped = ["obs", "concept"]
@@ -103,14 +105,16 @@ st.write(
 st.divider()
 st.header("Hypothsis 2: Is there a correlation between IQ and Gender?")
 
+st.write("Plot 2a")
 fig4 = plt.figure(figsize=(10, 4))
 sns.lineplot(x='gpa', y='gender', hue='iq', data=df)
 st.pyplot(fig4)
 
+st.write("Plot 2b")
 sns.set_theme()
+
 sns.scatterplot( x="gpa",y="iq",hue="gender", data=df)
 df.plot.scatter(x='iq', y='gpa')
-import seaborn as sns
 
 sns.set_theme()
 
@@ -129,12 +133,7 @@ st.header("#Hypothesis 3: Does gender affect gpa?")
 st.write(
   'Before I examined the data, my hypothesis for the question "Does gender affect GPA?" was no. I did not believe there was any correlation. To determine if this was true I made a scatter plot to see if there was any correlation.'
 )
-fig1 = px.scatter(df,
-                  x="gpa",
-                  y="gender",
-                  color="gpa",
-                  color_continous_scale="purd",
-                  title="Does gender affect gpa?")
+fig1 = px.scatter(df, x="gpa",y="gender",color="gpa",title="Does gender affect gpa?")
 st.plotly_chart(fig1, use_container_width=True)
 st.write(
   'For both gender 1 and gender 2, the gpa values seem to be in a straight line, which means that each gender had a variety of GPA values. This shows that there is no correlation.'
