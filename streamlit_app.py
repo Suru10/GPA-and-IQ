@@ -11,9 +11,9 @@ warnings.filterwarnings("ignore")
 # Team 1: Seth F., Kavya -> bottom
 # Team 2:emilia, Jemiah -> top
 #Introductions:
-st.subheader('Tranquil Tiramisus')
+st.subheader('Introduction:Tranquil Tiramisus')
 
-st.write('My name is Seth Fung and I reside in BC Canada')
+st.write('Hi, my name is Seth Fung and I reside in BC Canada')
 st.write(
   'Hi! I am Kavya and I am a sophomore. I live in Washington. I have coding experience in mostly HTML, Java, and Python. I have created a few projects and I am so excited to continue expanding my knowledge on coding.'
 )
@@ -22,7 +22,7 @@ st.write(
 )
 st.write(
   'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. Although I am new to coding, I look forward to broadening my experience with coding and technology.'
-)  #jemiah
+)  
 #Title:
 st.title("GPA and IQ EDA")
 st.write(
@@ -48,7 +48,9 @@ df = pd.read_csv(
 # There is no missing info
 st.divider()
 st.title("Cleaning the Data")
-st.write
+st.write(
+  "To clean the data we removed columns that were not relevant to our analysis such as obs and concept. The dataset had no missing values and "
+)
 
 columns_dropped = ["obs", "concept"]
 df.drop(columns_dropped, axis=1, inplace=True)
@@ -106,25 +108,14 @@ sns.lineplot(x='gpa', y='gender', hue='iq', data=df)
 st.pyplot(fig4)
 
 sns.set_theme()
-sns.scatterplot(
-  data=df,
-  x="gpa",
-  y="iq",
-  hue="gender",
-)
+sns.scatterplot( x="gpa",y="iq",hue="gender", data=df)
 df.plot.scatter(x='iq', y='gpa')
 import seaborn as sns
 
 sns.set_theme()
-df = pd.read_csv(
-  "https://raw.githubusercontent.com/Suru10/GPA-and-IQ/main/gpa_iq.csv")
 
-sns.scatterplot(
-  data=df,
-  x="iq",
-  y="gender",
-  hue="gpa",
-)
+sns.scatterplot(data=df, x="iq", y="gender", hue="gpa")
+
 sns.barplot(data=df, x='gender', y='iq', estimator='std')
 plt.show()
 # Analysis: Initially, I assumed there would be no correlation whatsoever between gender and iq, but upon furthur analysis of the data it seems that according to this study one gender is slightly superior in this measure.
