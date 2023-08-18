@@ -111,7 +111,7 @@ st.write(
 )
 st.divider()
 
-st.header("Hypothsis 2: Is there a correlation between IQ and Gender?")
+st.header("Hypothesis 2: Is there a correlation between IQ and Gender?")
 
 st.write("Plot 2a")
 fig4 = plt.figure(figsize=(10, 4))
