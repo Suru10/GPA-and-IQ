@@ -23,7 +23,7 @@ st.write(
   'Hi, Im emilia and Im 16 years old going on my senior year. I live in San Diego, CA. I have got experience in HTML, JavaScript, and python.'
 )
 st.write(
-  'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. I am new to coding and I look forward to broadening my experience with coding and technology.'
+  'Hi, my name is Jemiah! I am 16 and I live in Alberta, Canada. I am new to coding and I look forward to broadening my experiences with coding and technology.'
 )
 #Title:
 st.title("GPA and IQ EDA")
@@ -55,7 +55,7 @@ st.write(
 st.divider()
 st.title("Cleaning the Data")
 st.write(
-  "To clean the dataset we removed columns that were not relevant to our analysis such as obs and concept as well as checked if the data had null values and there were none."
+  "To clean the dataset we removed columns that were not relevant to our analysis as well as checked if the data had null values and there were none."
 )
 st.write("Post-processing head")
 columns_dropped = ["obs", "concept"]
@@ -184,7 +184,7 @@ st.write(
 )
 
 st.divider()
-st.header("#Hypothesis 4: Correlation heatmap for both columns")
+st.header("#Hypothesis 4: Correlation Heatmap")
 st.write(
   "To show how GPA, IQ, and gender correspond to each other I made a correlation heatmap that compares all the possible relations through color. "
 )
@@ -212,7 +212,7 @@ df_list = df[['gpa', 'iq', 'gender']]
 df_scatter = px.scatter_matrix(df_list)
 st.plotly_chart(df_scatter, use_container_width=True)
 st.write(
-  ' Here it clearly shows GPA and IQ as a strong positive correlation. Looking very closely, gender and IQ have a weak positive correlation and gender and GPA have a weak negative correlation. While gender can be observed as having no correlation to either IQ or GPA, it can be seen slightly on both the correlation heatmap and scatter matrix that gender has a weak correlation to GPA and IQ.'
+  ' Here it shows GPA and IQ as a weak positive correlation. While gender can be observed as having no correlation to either IQ or GPA, it can be seen very slightly on the correlation heatmap and scatter matrix that gender has a weak correlation to both GPA and IQ due to only a small amount of values.'
 )
 
 st.title("Conclusion")
